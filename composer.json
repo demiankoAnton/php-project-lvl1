@@ -1,0 +1,13 @@
+{
+    "name": "anton/brain-games",
+    "description": "Hexlet education project №1",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ВDemianko Anton",
+            "email": "demianko.a@gmail.com"
+        }
+    ],
+    "require": {}
+}
