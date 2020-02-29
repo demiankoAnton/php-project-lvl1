@@ -1,5 +1,4 @@
 #!/usr/bin/php
-
 <?php
 
 $autploadPath1 = __DIR__ . "/../../../vendor/autoload.php";
