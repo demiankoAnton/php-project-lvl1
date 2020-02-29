@@ -2,7 +2,14 @@
 
 <?php
 
-require_once __DIR__ . "/../vendor/autoload.php";
+$autploadPath1 = __DIR__ . "/../../../vendor/autoload.php";
+$autploadPath2 = __DIR__ . "/../vendor/autoload.php";
+
+if (file_exists($autploadPath1)){
+    require_once $autploadPath1;
+} else {
+    require_once $autploadPath2;
+}
 
 use function BrainGames\Cli\run;
 
