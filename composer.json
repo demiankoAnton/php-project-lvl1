@@ -1,13 +1,23 @@
 {
-    "name": "anton/brain-games",
+    "name": "demianko/brain-games",
     "description": "Hexlet education project №1",
-    "type": "project",
+    "keywords": ["education", "hexlet", "brain-games"],
+    "type": "library",
+    "homepage": "https://github.com/demiankoAnton/php-project-lvl1",
     "license": "MIT",
+    "version": "0.1.0",
     "authors": [
         {
-            "name": "ВDemianko Anton",
-            "email": "demianko.a@gmail.com"
+            "name": "Demianko Anton",
+            "email": "demianko.a@gmail.com",
+            "role": "Developer"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7.0.0"
+    },
+
+    "bin": [
+        "bin/brain-games"
+    ]
 }
