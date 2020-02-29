@@ -5,6 +5,7 @@
     "type": "library",
     "homepage": "https://github.com/demiankoAnton/php-project-lvl1",
     "license": "MIT",
+    "version": "0.1.0",
     "authors": [
         {
             "name": "Demianko Anton",
