@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-$autploadPath1 = __DIR__ . "/../../../vendor/autoload.php";
+$autploadPath1 = __DIR__ . "/../../../autoload.php";
 $autploadPath2 = __DIR__ . "/../vendor/autoload.php";
 
 if (file_exists($autploadPath1)){
