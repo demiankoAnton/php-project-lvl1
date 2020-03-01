@@ -20,18 +20,16 @@ function isEven()
             return line('Incorrect answer!');
         }
 
-        if ($randNumber % 2 == 0) {
-            if ($answer == 'yes') {
+        if ($randNumber % 2 == 0 && $answer == 'yes') {
                 line('Correct!');
-            } else {
-                return line("'no' is wrong answer ;(. Correct answer is 'yes'\n Let's try again {$name}\n");
-            }
-        } elseif ($randNumber % 2 != 0) {
-            if ($answer == 'no') {
+        } else {
+            return line("'no' is wrong answer ;(. Correct answer is 'yes'\n Let's try again {$name}\n");
+        }
+
+        if ($randNumber % 2 != 0 && $answer == 'no') {
                 line('Correct!');
-            } else {
+        } else {
                 return line("'yes' is wrong answer ;(. Correct answer is 'no'\n Let's try again {$name}\n");
-            }
         }
     }
 
