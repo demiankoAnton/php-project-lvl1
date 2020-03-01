@@ -10,6 +10,6 @@ if (file_exists($autploadPath1)){
     require_once $autploadPath2;
 }
 
-use function BrainGames\Cli\run;
+use function BrainGames\EvenGame\isEven;
 
-run();
+isEven();

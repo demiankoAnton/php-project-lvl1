@@ -19,11 +19,14 @@
     },
 
     "bin": [
-        "bin/brain-games"
+        "bin/brain-even"
     ],
 
     "autoload": {
-        "files": ["src/Cli.php"]
+        "files": [
+            "src/Cli.php",
+            "src/EvenGame.php"
+        ]
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "*"
