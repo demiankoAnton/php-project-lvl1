@@ -12,7 +12,7 @@ function isEven()
     line("Hello, %s!", $name);
 
     for ($i = 0; $i < 3; $i++) {
-        $randNumber = rand();
+        $randNumber = rand(0, 999);
         line("Question: {$randNumber}");
         $answer = prompt('Your answer: ');
 
@@ -37,3 +37,4 @@ function isEven()
 
     line("Congratulations, {$name}!");
 }
+
