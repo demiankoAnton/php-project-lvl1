@@ -3,6 +3,7 @@
     "description": "Hexlet education project №1",
     "keywords": ["education", "hexlet", "brain-games"],
     "type": "library",
+    "minimum-stability": "dev",
     "homepage": "https://github.com/demiankoAnton/php-project-lvl1",
     "license": "MIT",
     "authors": [
@@ -19,7 +20,8 @@
 
     "bin": [
         "bin/brain-even",
-        "bin/brain-calc"
+        "bin/brain-calc",
+        "bin/brain-gcd"
     ],
 
     "autoload": {
@@ -27,7 +29,8 @@
             "src/Cli.php",
             "src/gameEngine.php",
             "src/games/EvenGame.php",
-            "src/games/CalcGame.php"
+            "src/games/CalcGame.php",
+            "src/games/GcdGame.php"
         ]
     },
     "require-dev": {

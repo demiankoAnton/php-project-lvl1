@@ -7,18 +7,12 @@ use function cli\prompt;
 
 function run(string $game)
 {
-    switch ($game) {
-        case 'calc':
-            $gameGenerator = 'BrainGames\Games\CalcGame\calcGameGenerate';
-            $gameAnswer = 'BrainGames\Games\CalcGame\getCalcAnswer';
-            $gameDescription = 'BrainGames\Games\CalcGame\getCalcDescription';
-            break;
-        case 'even':
-            $gameGenerator = 'BrainGames\Games\EvenGame\evenGameGenerator';
-            $gameAnswer = 'BrainGames\Games\EvenGame\getEvenAnswer';
-            $gameDescription = 'BrainGames\Games\EvenGame\getEvenDescription';
-    }
+    $gameGenerator = '';
+    $gameDescription = '';
 
+    getGameType($game, $gameGenerator, $gameDescription);
+
+    line('Welcome to the Brain Games!');
     line($gameDescription());
     $name = prompt('May I have your name?');
     line("Hello, %s!" . PHP_EOL, $name);
@@ -27,16 +21,49 @@ function run(string $game)
         $expressionString = '';
         $correctAnswer = 0;
 
-        line('Question: ' . $gameGenerator($correctAnswer, $expressionString));
-        $answer = prompt('Your answer: ');
-        $result = $gameAnswer($answer, $correctAnswer);
+        $gameGenerator($correctAnswer, $expressionString);
 
-        if ($result == 1) {
-            line('Correct!');
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
-            die;
-        }
+        line('Question: ' . $expressionString);
+        $userAnswer = prompt('Your answer: ');
+        $result = getCorrectAnswer($userAnswer, $correctAnswer);
+
+        getGameResult($result, $userAnswer, $correctAnswer);
     }
+
     line("Congratulations, {$name}!");
+}
+
+function getGameType(string $game, &$gameGenerator, &$gameDescription)
+{
+    switch ($game) {
+        case 'calc':
+            $gameGenerator = 'BrainGames\Games\CalcGame\calcGameGenerator';
+            $gameDescription = 'BrainGames\Games\CalcGame\getCalcDescription';
+            break;
+        case 'even':
+            $gameGenerator = 'BrainGames\Games\EvenGame\evenGameGenerator';
+            $gameDescription = 'BrainGames\Games\EvenGame\getEvenDescription';
+            break;
+        case 'gcd':
+            $gameGenerator = 'BrainGames\Games\GcdGame\GcdGameGenerator';
+            $gameDescription = 'BrainGames\Games\GcdGame\getGcdDescription';
+            break;
+    }
+}
+
+function getCorrectAnswer($userAnswer, $correctAnswer)
+{
+    if ($userAnswer == $correctAnswer) {
+        return 1;
+    }
+}
+
+function getGameResult($result, $userAnswer, $correctAnswer)
+{
+    if ($result == 1) {
+        line('Correct!');
+    } else {
+        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
+        die;
+    }
 }

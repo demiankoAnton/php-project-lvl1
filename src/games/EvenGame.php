@@ -11,16 +11,6 @@ function evenGameGenerator(&$correctAnswer, &$expressionString)
     } else {
         $correctAnswer = 'no';
     }
-
-    return $expressionString;
-}
-
-
-function getEvenAnswer($answer, $correctAnswer)
-{
-    if ($answer == $correctAnswer) {
-        return 1;
-    }
 }
 
 function getEvenDescription()
