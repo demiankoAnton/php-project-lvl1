@@ -21,10 +21,10 @@ function run(string $game)
             $gameAnswer = 'BrainGames\Games\EvenGame\evenAnswer';
     }
 
-    $expressionString = '';
-    $correctAnswer = 0;
-
     for ($i = 0; $i < 3; $i++) {
+        $expressionString = '';
+        $correctAnswer = 0;
+
         line('Question: ' . $gameGenerator($correctAnswer, $expressionString));
         $answer = prompt('Your answer: ');
         $result = $gameAnswer($answer, $correctAnswer);
@@ -36,6 +36,5 @@ function run(string $game)
             die;
         }
     }
-
     line("Congratulations, {$name}!");
 }

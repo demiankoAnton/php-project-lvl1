@@ -2,9 +2,6 @@
 
 namespace BrainGames\Games\EvenGame;
 
-use function cli\line;
-use function cli\prompt;
-
 function evenGenerator(&$correctAnswer, &$expressionString)
 {
     $expressionString = rand(0, 999);
