@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games\EvenGame;
 
-function evenGenerator(&$correctAnswer, &$expressionString)
+function evenGameGenerator(&$correctAnswer, &$expressionString)
 {
     $expressionString = rand(0, 999);
 
@@ -16,11 +16,14 @@ function evenGenerator(&$correctAnswer, &$expressionString)
 }
 
 
-function evenAnswer($answer, $correctAnswer)
+function getEvenAnswer($answer, $correctAnswer)
 {
     if ($answer == $correctAnswer) {
         return 1;
     }
+}
 
-    return 0;
+function getEvenDescription()
+{
+    return 'Answer "yes" if the number is even, otherwise answer "no".' . PHP_EOL;
 }

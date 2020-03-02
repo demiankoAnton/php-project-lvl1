@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games\CalcGame;
 
-function calcGenerate(&$correctAnswer, &$expressionString)
+function calcGameGenerate(&$correctAnswer, &$expressionString)
 {
     $firstNumber = rand(0, 99);
     $secondNumber = rand(0, 99);
@@ -25,17 +25,19 @@ function calcGenerate(&$correctAnswer, &$expressionString)
     }
 
     $correctAnswer = $calculatedAnswer;
-
     $expressionString = "{$firstNumber} {$operationMark} {$secondNumber}";
 
     return $expressionString;
 }
 
-function calcAnswer($answer, $correctAnswer)
+function getCalcAnswer($answer, $correctAnswer)
 {
     if ($answer == $correctAnswer) {
         return 1;
-    } else {
-        return 0;
     }
+}
+
+function getcalcDescription()
+{
+    return 'What is the result of the expression?' . PHP_EOL;
 }

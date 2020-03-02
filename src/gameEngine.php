@@ -7,19 +7,21 @@ use function cli\prompt;
 
 function run(string $game)
 {
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-
     switch ($game) {
         case 'calc':
-            $gameGenerator = 'BrainGames\Games\CalcGame\calcGenerate';
-            $gameAnswer = 'BrainGames\Games\CalcGame\calcAnswer';
+            $gameGenerator = 'BrainGames\Games\CalcGame\calcGameGenerate';
+            $gameAnswer = 'BrainGames\Games\CalcGame\getCalcAnswer';
+            $gameDescription = 'BrainGames\Games\CalcGame\getCalcDescription';
             break;
         case 'even':
-            $gameGenerator = 'BrainGames\Games\EvenGame\evenGenerator';
-            $gameAnswer = 'BrainGames\Games\EvenGame\evenAnswer';
+            $gameGenerator = 'BrainGames\Games\EvenGame\evenGameGenerator';
+            $gameAnswer = 'BrainGames\Games\EvenGame\getEvenAnswer';
+            $gameDescription = 'BrainGames\Games\EvenGame\getEvenDescription';
     }
+
+    line($gameDescription());
+    $name = prompt('May I have your name?');
+    line("Hello, %s!" . PHP_EOL, $name);
 
     for ($i = 0; $i < 3; $i++) {
         $expressionString = '';
