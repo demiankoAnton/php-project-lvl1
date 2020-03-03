@@ -5,17 +5,21 @@
 ### How to install the package:
 [![asciicast](https://asciinema.org/a/306713.svg)](https://asciinema.org/a/306713)
 
-### Even Game
+### Even Game:
 Use ```brain-even``` command to start
 [![asciicast](https://asciinema.org/a/306718.svg)](https://asciinema.org/a/306718)
 
-### Calc Game
+### Calc Game:
 Use ```brain-calc``` to start
 [![asciicast](https://asciinema.org/a/306721.svg)](https://asciinema.org/a/306721)
 
-### GCD Game
+### GCD Game:
 Use ```brain-gcd``` to start
 [![asciicast](https://asciinema.org/a/306723.svg)](https://asciinema.org/a/306723)
 
-### Progression Game
+### Progression Game:
 Use ```brain-progression``` to Start
+[![asciicast](https://asciinema.org/a/306982.svg)](https://asciinema.org/a/306982)
+
+### Prime Game:
+Use ```brain-prime``` to Start
