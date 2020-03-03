@@ -48,6 +48,10 @@ function getGameType(string $game, &$gameGenerator, &$gameDescription)
             $gameGenerator = 'BrainGames\Games\GcdGame\GcdGameGenerator';
             $gameDescription = 'BrainGames\Games\GcdGame\getGcdDescription';
             break;
+        case 'progression':
+            $gameGenerator = 'BrainGames\Games\ProgressionGame\progressionGameGenerator';
+            $gameDescription = 'BrainGames\Games\ProgressionGame\getProgressionDescription';
+            break;
     }
 }
 
