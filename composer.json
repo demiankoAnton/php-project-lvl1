@@ -28,7 +28,6 @@
 
     "autoload": {
         "files": [
-            "src/Cli.php",
             "src/gameEngine.php",
             "src/games/EvenGame.php",
             "src/games/CalcGame.php",

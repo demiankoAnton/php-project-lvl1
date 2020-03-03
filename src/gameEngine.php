@@ -62,13 +62,13 @@ function getGameType(string $game, &$gameGenerator, &$gameDescription)
 function getCorrectAnswer($userAnswer, $correctAnswer)
 {
     if ($userAnswer == $correctAnswer) {
-        return 1;
+        return true;
     }
 }
 
 function getGameResult($result, $userAnswer, $correctAnswer)
 {
-    if ($result == 1) {
+    if ($result) {
         line('Correct!');
     } else {
         line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
