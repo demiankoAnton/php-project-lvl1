@@ -2,7 +2,9 @@
 
 namespace BrainGames\Games\PrimeGame;
 
-function primeGameGenerator(&$correctAnswer, &$expressionString)
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".' . PHP_EOL;
+
+function primeGame()
 {
     $number = rand(1, 99);
 
@@ -13,6 +15,12 @@ function primeGameGenerator(&$correctAnswer, &$expressionString)
     } else {
         $correctAnswer = 'no';
     }
+
+    return [
+        DESCRIPTION,
+        $expressionString,
+        $correctAnswer
+    ];
 }
 
 function isPrime(int $number): bool
@@ -26,7 +34,3 @@ function isPrime(int $number): bool
     return true;
 }
 
-function getPrimeDescription()
-{
-    return 'Answer "yes" if given number is prime. Otherwise answer "no".' . PHP_EOL;
-}

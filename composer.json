@@ -2,8 +2,7 @@
     "name": "demianko/brain-games",
     "description": "Hexlet education project №1",
     "keywords": ["education", "hexlet", "brain-games"],
-    "type": "library",
-    "minimum-stability": "dev",
+    "type": "project",
     "homepage": "https://github.com/demiankoAnton/php-project-lvl1",
     "license": "MIT",
     "authors": [

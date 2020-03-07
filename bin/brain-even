@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+use function BrainGames\Games\EvenGame\evenGame;
+
 $autploadPath1 = __DIR__ . "/../../../autoload.php";
 $autploadPath2 = __DIR__ . "/../vendor/autoload.php";
 
@@ -10,6 +12,4 @@ if (file_exists($autploadPath1)){
     require_once $autploadPath2;
 }
 
-use function BrainGames\GameEngine\run;
-
-run('even');
+evenGame();
