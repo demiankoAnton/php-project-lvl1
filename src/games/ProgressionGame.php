@@ -2,32 +2,47 @@
 
 namespace BrainGames\Games\ProgressionGame;
 
+use function BrainGames\GameEngine\run;
+
+use const BrainGames\GameConfig\GAMES_TO_WIN;
+
 const DESCRIPTION = 'What number is missing in the progression?' . PHP_EOL;
 
 function progressionGame()
 {
-    $currentProgressionElement = rand(0, 99);
-    $progressionStep = rand(1, 9);
-    $calculatedElement = rand(1, 9);
-    $expressionString = '';
-    $correctAnswer = 0;
+    $gameResources = progressionGameGenerator();
 
-    for ($i = 0; $i < 10; $i++) {
-        if ($i == $calculatedElement - 1) {
-            $expressionString .= ".. ";
-            $correctAnswer = $currentProgressionElement;
+    run(DESCRIPTION, $gameResources);
+}
+
+function progressionGameGenerator()
+{
+    $expressionStrings = [];
+    $correctAnswers = [];
+
+    for ($i = 0; $i < GAMES_TO_WIN; $i++) {
+        $expressionString = '';
+        $currentProgressionElement = rand(0, 99);
+        $progressionStep = rand(1, 9);
+        $calculatedElement = rand(1, 9);
+
+        for ($j = 0; $j < 10; $j++) {
+            if ($j == $calculatedElement - 1) {
+                $expressionString .= ".. ";
+                $correctAnswers[] = $currentProgressionElement;
+                $currentProgressionElement += $progressionStep;
+                continue;
+            }
+
+            $expressionString .= "{$currentProgressionElement} ";
             $currentProgressionElement += $progressionStep;
-            continue;
         }
 
-        $expressionString .= "{$currentProgressionElement} ";
-        $currentProgressionElement += $progressionStep;
+        $expressionStrings[] = $expressionString;
     }
 
     return [
-        DESCRIPTION,
-        $expressionString,
-        $correctAnswer
+        $expressionStrings,
+        $correctAnswers
     ];
 }
-

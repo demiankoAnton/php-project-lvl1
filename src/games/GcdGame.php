@@ -2,20 +2,17 @@
 
 namespace BrainGames\Games\GcdGame;
 
+use function BrainGames\GameEngine\run;
+
+use const BrainGames\GameConfig\GAMES_TO_WIN;
+
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.' . PHP_EOL;
 
 function gcdGame()
 {
-    $firstNumber = rand(1, 99);
-    $secondNumber = rand(1, 99);
-    $correctAnswer = getNod($firstNumber, $secondNumber);
-    $expressionString = "{$firstNumber} {$secondNumber}";
+    $gameResources = gcdGameGenerator();
 
-    return [
-        DESCRIPTION,
-        $expressionString,
-        $correctAnswer
-    ];
+    run(DESCRIPTION, $gameResources);
 }
 
 function getNod($firstNumber, $secondNumber)
@@ -31,3 +28,20 @@ function getNod($firstNumber, $secondNumber)
     return 1;
 }
 
+function gcdGameGenerator()
+{
+    $expressionStrings = [];
+    $correctAnswers = [];
+
+    for ($i = 0; $i < GAMES_TO_WIN; $i++) {
+        $firstNumber = rand(1, 99);
+        $secondNumber = rand(1, 99);
+        $correctAnswers[] = getNod($firstNumber, $secondNumber);
+        $expressionStrings[] = "{$firstNumber} {$secondNumber}";
+    }
+
+    return [
+        $expressionStrings,
+        $correctAnswers
+    ];
+}

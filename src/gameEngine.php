@@ -6,21 +6,24 @@ use function cli\line;
 use function cli\prompt;
 use function BrainGames\Games\EvenGame\evenGameDataGenerator;
 
-const GAMES_TO_WIN = 3;
+use const BrainGames\GameConfig\GAMES_TO_WIN;
 
-function run($gameResources)
+function run($description, $gameResources)
 {
+    $expressionString = $gameResources[0];
+    $correctAnswer = $gameResources[1];
+
     line('Welcome to the Brain Games!');
-    line($gameResources[0]);
+    line($description);
     $name = prompt('May I have your name?');
     line("Hello, %s!" . PHP_EOL, $name);
 
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
-        line('Question: ' . $gameResources[1]);
+        line('Question: ' . $expressionString[$i]);
         $userAnswer = prompt('Your answer: ');
-        $result = getCorrectAnswer($userAnswer, $gameResources[2]);
+        $result = getCorrectAnswer($userAnswer, $correctAnswer[$i]);
 
-        getGameResult($result, $userAnswer, $gameResources[2]);
+        getGameResult($result, $userAnswer, $correctAnswer[$i]);
     }
 
     line("Congratulations, {$name}!");
@@ -28,9 +31,7 @@ function run($gameResources)
 
 function getCorrectAnswer($userAnswer, $correctAnswer)
 {
-    if ($userAnswer == $correctAnswer) {
-        return true;
-    }
+        return $userAnswer == $correctAnswer;
 }
 
 function getGameResult($result, $userAnswer, $correctAnswer)

@@ -28,6 +28,7 @@
     "autoload": {
         "files": [
             "src/gameEngine.php",
+            "src/gameConfig.php",
             "src/games/EvenGame.php",
             "src/games/CalcGame.php",
             "src/games/GcdGame.php",
