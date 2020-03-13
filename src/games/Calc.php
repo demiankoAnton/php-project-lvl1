@@ -17,9 +17,6 @@ function calcGame()
 
 function calcGameGenerator()
 {
-    //$currentQuestions = [];
-    //$correctAnswers = [];
-
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $firstNumber = rand(0, 99);
         $secondNumber = rand(0, 99);
@@ -28,21 +25,18 @@ function calcGameGenerator()
 
         switch ($operation[$currentOperationKey]) {
             case '+':
-                $correctAnswers[] = $firstNumber + $secondNumber;
+                $correctAnswers = $firstNumber + $secondNumber;
                 break;
             case '-':
-                $correctAnswers[] = $firstNumber - $secondNumber;
+                $correctAnswers = $firstNumber - $secondNumber;
                 break;
             case '*':
-                $correctAnswers[] = $firstNumber * $secondNumber;
+                $correctAnswers = $firstNumber * $secondNumber;
                 break;
         }
 
-        $currentQuestions[] = "{$firstNumber} {$operation[$currentOperationKey]} {$secondNumber}";
+        $gameResources[] = ["{$firstNumber} {$operation[$currentOperationKey]} {$secondNumber}", $correctAnswers];
     }
 
-    return [
-        $currentQuestions,
-        $correctAnswers
-    ];
+    return $gameResources;
 }

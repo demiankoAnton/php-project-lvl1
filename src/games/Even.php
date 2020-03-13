@@ -17,21 +17,13 @@ function evenGame()
 
 function evenGameDataGenerator()
 {
-    $currentQuestions = [];
-    $correctAnswers = [];
-
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $randNumber = rand(0, 999);
         $answer = isEven($randNumber) ? 'yes' : 'no';
-
-        $currentQuestions[] = $randNumber;
-        $correctAnswers[] = $answer;
+        $gameResources[] = [$randNumber, $answer];
     }
 
-    return [
-        $currentQuestions,
-        $correctAnswers
-    ];
+    return $gameResources;
 }
 
 function isEven(int $number)

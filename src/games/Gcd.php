@@ -30,18 +30,11 @@ function getNod($firstNumber, $secondNumber)
 
 function gcdGameGenerator()
 {
-    $currentQuestions = [];
-    $correctAnswers = [];
-
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $firstNumber = rand(1, 99);
         $secondNumber = rand(1, 99);
-        $correctAnswers[] = getNod($firstNumber, $secondNumber);
-        $currentQuestions[] = "{$firstNumber} {$secondNumber}";
+        $gameResources[] = ["{$firstNumber} {$secondNumber}", getNod($firstNumber, $secondNumber)];
     }
 
-    return [
-        $currentQuestions,
-        $correctAnswers
-    ];
+    return $gameResources;
 }

@@ -32,23 +32,18 @@ function isPrime(int $number): bool
 
 function primeGameGenerator()
 {
-    $currentQuestions = [];
-    $correctAnswers = [];
-
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $number = rand(1, 99);
-        $currentQuestions[] = $number;
 
         if (isPrime($number)) {
-            $correctAnswers[] = 'yes';
+            $correctAnswers = 'yes';
         } else {
-            $correctAnswers[] = 'no';
+            $correctAnswers = 'no';
         }
+
+        $gameResources[] = [$number, $correctAnswers];
     }
 
 
-    return [
-        $currentQuestions,
-        $correctAnswers
-    ];
+    return $gameResources;
 }

@@ -18,9 +18,6 @@ function progressionGame()
 
 function progressionGameGenerator()
 {
-    $currentQuestions = [];
-    $correctAnswers = [];
-
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $currentExpression = '';
         $progressionStart = rand(0, 99);
@@ -32,18 +29,15 @@ function progressionGameGenerator()
 
             if ($j == $calculatedElement - 1) {
                 $currentExpression = "{$currentExpression} ..";
-                $correctAnswers[] = $currentProgressionElement;
+                $correctAnswers = $currentProgressionElement;
                 continue;
             }
 
             $currentExpression = "{$currentExpression} {$currentProgressionElement}";
         }
 
-        $currentQuestions[] = ltrim($currentExpression);
+        $gameResources[] = [ltrim($currentExpression), $correctAnswers];
     }
 
-    return [
-        $currentQuestions,
-        $correctAnswers
-    ];
+    return $gameResources;
 }
