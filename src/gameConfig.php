@@ -1,5 +1,5 @@
 <?php
 
-namespace BrainGames\GameConfig;
+namespace BrainGames\gameConfig;
 
 const GAMES_TO_WIN = 3;

@@ -29,11 +29,11 @@
         "files": [
             "src/gameEngine.php",
             "src/gameConfig.php",
-            "src/games/EvenGame.php",
-            "src/games/CalcGame.php",
-            "src/games/GcdGame.php",
-            "src/games/ProgressionGame.php",
-            "src/games/PrimeGame.php"
+            "src/games/Even.php",
+            "src/games/Calc.php",
+            "src/games/Gcd.php",
+            "src/games/Progression.php",
+            "src/games/Prime.php"
         ]
     },
     "require-dev": {
