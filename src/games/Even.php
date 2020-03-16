@@ -18,9 +18,9 @@ function evenGame()
 function generateEvenGameData()
 {
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
-        $randNumber = rand(0, 999);
-        $correctAnswer = isEven($randNumber) ? 'yes' : 'no';
-        $evenGameData[] = [$randNumber, $correctAnswer];
+        $questionNumber = rand(0, 999);
+        $correctAnswer = isEven($questionNumber) ? 'yes' : 'no';
+        $evenGameData[] = [$questionNumber, $correctAnswer];
     }
 
     return $evenGameData;

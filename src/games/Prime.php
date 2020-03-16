@@ -33,11 +33,11 @@ function isPrime(int $number): bool
 function generatePrimeGameData()
 {
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
-        $number = rand(1, 99);
+        $questionNumber = rand(1, 99);
 
-        $correctAnswer = isPrime($number) ? 'yes' : 'no';
+        $correctAnswer = isPrime($questionNumber) ? 'yes' : 'no';
 
-        $primeGameData[] = [$number, $correctAnswer];
+        $primeGameData[] = [$questionNumber, $correctAnswer];
     }
 
 
