@@ -7,7 +7,7 @@ use function cli\prompt;
 
 use const BrainGames\gameConfig\GAMES_TO_WIN;
 
-function run($description, $gameResources)
+function run($description, $gameData)
 {
     line('Welcome to the Brain Games!');
     line($description . PHP_EOL);
@@ -15,13 +15,12 @@ function run($description, $gameResources)
     line("Hello, %s!" . PHP_EOL, $name);
 
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
-        [$currentQuestions, $correctAnswers] = [$gameResources[$i][0], $gameResources[$i][1]];
+        [$currentQuestions, $correctAnswers] = [$gameData[$i][0], $gameData[$i][1]];
 
         line('Question: ' . $currentQuestions);
         $userAnswer = prompt('Your answer');
-        $result = getCorrectAnswer($userAnswer, $correctAnswers);
 
-        if ($result) {
+        if ($userAnswer == $correctAnswers) {
             line('Correct!');
         } else {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswers}'");
@@ -30,9 +29,4 @@ function run($description, $gameResources)
     }
 
     line("Congratulations, {$name}!");
-}
-
-function getCorrectAnswer($userAnswer, $correctAnswer): bool
-{
-        return $userAnswer == $correctAnswer;
 }

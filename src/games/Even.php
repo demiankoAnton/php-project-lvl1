@@ -10,20 +10,20 @@ const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 function evenGame()
 {
-    $gameResources = evenGameDataGenerator();
+    $evenGameData = generateEvenGameData();
 
-    run(DESCRIPTION, $gameResources);
+    run(DESCRIPTION, $evenGameData);
 }
 
-function evenGameDataGenerator()
+function generateEvenGameData()
 {
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $randNumber = rand(0, 999);
-        $answer = isEven($randNumber) ? 'yes' : 'no';
-        $gameResources[] = [$randNumber, $answer];
+        $correctAnswer = isEven($randNumber) ? 'yes' : 'no';
+        $evenGameData[] = [$randNumber, $correctAnswer];
     }
 
-    return $gameResources;
+    return $evenGameData;
 }
 
 function isEven(int $number)

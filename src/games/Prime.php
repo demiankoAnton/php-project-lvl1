@@ -10,9 +10,9 @@ const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 function primeGame()
 {
-    $gameResources = primeGameGenerator();
+    $primeGameData = generatePrimeGameData();
 
-    run(DESCRIPTION, $gameResources);
+    run(DESCRIPTION, $primeGameData);
 }
 
 function isPrime(int $number): bool
@@ -30,20 +30,16 @@ function isPrime(int $number): bool
     return true;
 }
 
-function primeGameGenerator()
+function generatePrimeGameData()
 {
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $number = rand(1, 99);
 
-        if (isPrime($number)) {
-            $correctAnswers = 'yes';
-        } else {
-            $correctAnswers = 'no';
-        }
+        $correctAnswer = isPrime($number) ? 'yes' : 'no';
 
-        $gameResources[] = [$number, $correctAnswers];
+        $primeGameData[] = [$number, $correctAnswer];
     }
 
 
-    return $gameResources;
+    return $primeGameData;
 }
