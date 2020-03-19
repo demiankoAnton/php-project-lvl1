@@ -10,20 +10,21 @@ const DESCRIPTION = 'What is the result of the expression?';
 
 function calcGame()
 {
-    $calcGameData = generateCalcGameData();
+    $calcGameData = generateGameData();
 
     run(DESCRIPTION, $calcGameData);
 }
 
-function generateCalcGameData()
+function generateGameData()
 {
     for ($i = 0; $i < GAMES_TO_WIN; $i++) {
         $firstNumber = rand(0, 99);
         $secondNumber = rand(0, 99);
-        $operation = ['+', '-', '*'];
-        $currentOperationKey = array_rand($operation);
+        $operations = ['+', '-', '*'];
+        $operationKey = array_rand($operations);
+        $operation = $operations[$operationKey];
 
-        switch ($operation[$currentOperationKey]) {
+        switch ($operation) {
             case '+':
                 $correctAnswer = $firstNumber + $secondNumber;
                 break;
@@ -35,9 +36,9 @@ function generateCalcGameData()
                 break;
         }
 
-        $currentQuestion = "{$firstNumber} {$operation[$currentOperationKey]} {$secondNumber}";
-        $calcGameData[] = [$currentQuestion, $correctAnswer];
+        $question = "{$firstNumber} {$operation} {$secondNumber}";
+        $gameData[] = [$question, $correctAnswer];
     }
 
-    return $calcGameData;
+    return $gameData;
 }

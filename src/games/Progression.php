@@ -11,33 +11,33 @@ const PROGRESSION_LENGTH = 10;
 
 function progressionGame()
 {
-    $progGameData = generateProgGameData();
+    $progGameData = generateGameData();
 
     run(DESCRIPTION, $progGameData);
 }
 
-function generateProgGameData()
+function generateGameData()
 {
-    for ($i = 0; $i < 3; $i++) {
-        $currentQuestion = '';
+    for ($i = 0; $i < GAMES_TO_WIN; $i++) {
+        $question = '';
         $progressionStart = rand(0, 99);
         $progressionStep = rand(1, 9);
-        $calculatedElementPosition = rand(1, 10);
+        $calculatedElementPosition = rand(1, PROGRESSION_LENGTH);
 
-        for ($j = 0; $j < 10; $j++) {
+        for ($j = 0; $j < PROGRESSION_LENGTH; $j++) {
             $currentProgressionElement = $progressionStart + $progressionStep * $j;
 
             if ($j == $calculatedElementPosition - 1) {
-                $currentQuestion = "{$currentQuestion} ..";
+                $question = "{$question} ..";
                 $correctAnswer = $currentProgressionElement;
                 continue;
             }
 
-            $currentQuestion = "{$currentQuestion} {$currentProgressionElement}";
+            $question = "{$question} {$currentProgressionElement}";
         }
 
-        $progGameData[] = [ltrim($currentQuestion), $correctAnswer];
+        $gameData[] = [ltrim($question), $correctAnswer];
     }
 
-    return $progGameData;
+    return $gameData;
 }

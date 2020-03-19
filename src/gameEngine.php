@@ -5,8 +5,6 @@ namespace BrainGames\gameEngine;
 use function cli\line;
 use function cli\prompt;
 
-use const BrainGames\gameConfig\GAMES_TO_WIN;
-
 function run($description, $gameData)
 {
     line('Welcome to the Brain Games!');
@@ -14,16 +12,16 @@ function run($description, $gameData)
     $name = prompt('May I have your name?');
     line("Hello, %s!" . PHP_EOL, $name);
 
-    for ($i = 0; $i < GAMES_TO_WIN; $i++) {
-        [$currentQuestions, $correctAnswers] = [$gameData[$i][0], $gameData[$i][1]];
+    foreach ($gameData as $data) {
+        [$question, $correctAnswer] = [$data[0], $data[1]];
 
-        line('Question: ' . $currentQuestions);
+        line('Question: ' . $question);
         $userAnswer = prompt('Your answer');
 
-        if ($userAnswer == $correctAnswers) {
+        if ($userAnswer == $correctAnswer) {
             line('Correct!');
         } else {
-            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswers}'");
+            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
             die;
         }
     }
