@@ -5,7 +5,7 @@
 ### How to install the package:
 Use `composer global require demianko/brain-games:dev-master` to install<br>    
 
-[![asciicast](https://asciinema.org/a/307038.svg)](https://asciinema.org/a/307038)
+[![asciicast](https://asciinema.org/a/312534.svg)](https://asciinema.org/a/312534)
 
 ### Even Game:
 Use `brain-even` command to start<br>
@@ -15,7 +15,7 @@ Use `brain-even` command to start<br>
 ### Calc Game:
 Use `brain-calc` to start<br>
 
-[![asciicast](https://asciinema.org/a/307030.svg)](https://asciinema.org/a/307030)
+[![asciicast](https://asciinema.org/a/312535.svg)](https://asciinema.org/a/312535)
 
 ### GCD Game:
 Use `brain-gcd` to start<br>

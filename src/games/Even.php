@@ -10,9 +10,9 @@ const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 function evenGame()
 {
-    $evenGameData = generateGameData();
+    $gameData = generateGameData();
 
-    run(DESCRIPTION, $evenGameData);
+    run(DESCRIPTION, $gameData);
 }
 
 function generateGameData()

@@ -10,9 +10,9 @@ const DESCRIPTION = 'What is the result of the expression?';
 
 function calcGame()
 {
-    $calcGameData = generateGameData();
+    $gameData = generateGameData();
 
-    run(DESCRIPTION, $calcGameData);
+    run(DESCRIPTION, $gameData);
 }
 
 function generateGameData()

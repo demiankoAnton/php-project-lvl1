@@ -8,14 +8,14 @@ use function cli\prompt;
 function run($description, $gameData)
 {
     line('Welcome to the Brain Games!');
-    line($description . PHP_EOL);
+    line("{$description}\n");
     $name = prompt('May I have your name?');
-    line("Hello, %s!" . PHP_EOL, $name);
+    line("Hello, %s!\n", $name);
 
     foreach ($gameData as $data) {
-        [$question, $correctAnswer] = [$data[0], $data[1]];
+        [$question, $correctAnswer] = $data;
 
-        line('Question: ' . $question);
+        line("Question {$question}");
         $userAnswer = prompt('Your answer');
 
         if ($userAnswer == $correctAnswer) {

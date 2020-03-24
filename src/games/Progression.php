@@ -11,9 +11,9 @@ const PROGRESSION_LENGTH = 10;
 
 function progressionGame()
 {
-    $progGameData = generateGameData();
+    $gameData = generateGameData();
 
-    run(DESCRIPTION, $progGameData);
+    run(DESCRIPTION, $gameData);
 }
 
 function generateGameData()
@@ -22,12 +22,12 @@ function generateGameData()
         $question = '';
         $progressionStart = rand(0, 99);
         $progressionStep = rand(1, 9);
-        $calculatedElementPosition = rand(1, PROGRESSION_LENGTH);
+        $missingElementPosition = rand(1, PROGRESSION_LENGTH);
 
         for ($j = 0; $j < PROGRESSION_LENGTH; $j++) {
             $currentProgressionElement = $progressionStart + $progressionStep * $j;
 
-            if ($j == $calculatedElementPosition - 1) {
+            if ($j == $missingElementPosition - 1) {
                 $question = "{$question} ..";
                 $correctAnswer = $currentProgressionElement;
                 continue;
