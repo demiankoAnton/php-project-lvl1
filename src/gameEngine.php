@@ -12,9 +12,7 @@ function run($description, $gameData)
     $name = prompt('May I have your name?');
     line("Hello, %s!\n", $name);
 
-    foreach ($gameData as $data) {
-        [$question, $correctAnswer] = $data;
-
+    foreach ($gameData as [$question, $correctAnswer]) {
         line("Question {$question}");
         $userAnswer = prompt('Your answer');
 
