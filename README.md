@@ -1,4 +1,4 @@
-# php-project-lvl1
+# Brain Games
 ![PHP CI](https://github.com/demiankoAnton/php-project-lvl1/workflows/PHP%20CI/badge.svg?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/37da338ba2631b5c6b47/maintainability)](https://codeclimate.com/github/demiankoAnton/php-project-lvl1/maintainability)
 
